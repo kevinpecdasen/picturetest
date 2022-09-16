@@ -19,6 +19,14 @@ return new class extends Migration
             $table->string('comments');
             $table->timestamps();
         });
+
+        //insert John Smith, Seeder is working fine too
+        \DB::table('users')->insert(
+            array(
+                'name' => "John Smith",
+                'comments' => "Director"
+            )
+        );
     }
 
     /**

@@ -18,11 +18,17 @@ class UserController extends Controller
         if (request()->method() == "GET") {
             //validation
             if(!$id || !is_numeric($id)){
-                $this->apidie('No such user ', 422);
+                $this->apidie('Invalid id ', 422);
             }
 
             $user = User::find($id);
-            return view('user', compact('user'));
+            if($user) {
+                return view('user', compact('user'));
+            }
+
+            $this->apidie('No such user '.$id, 404);
+
+            
         }
 
     }
@@ -63,10 +69,10 @@ class UserController extends Controller
         try { 
             //search and update the comment
             $user = User::find($post_data['id']);
-            $user->comments = $post_data['comments'];
             
             if(!$user)
                 $this->apidie('user id '.$post_data['id'].' was not found in the database.', 404);
+            $user->comments = $post_data['comments'];
 
             if($user->update()) 
                 $this->apidie('OK', 200);
