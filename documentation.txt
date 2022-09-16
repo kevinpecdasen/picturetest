@@ -1,0 +1,30 @@
+Documentation according to the Functionality to be Ported section.
+
+Basically there are only 3 routes
+
+2 found in web.php
+	Route::get('/{id?}', [UserController::class, 'getUser']);
+	Route::post('/add_comment', [UserController::class, 'add_comment']);
+1 in api.php
+	Route::post('/add_comment', [UserController::class, 'add_comment']);
+
+
+web.php
+Route::get('/{id?}', [UserController::class, 'getUser']);
+	This takes a number as a the user id, if the user id is found then it will display to the web browser the name and comments of the user.
+Route::post('/add_comment', [UserController::class, 'add_comment']);
+	This takes request object or json object containing id, password and comments as a parameter. This then is used to validate the user and if all is valid the comments us updated.
+
+api.php
+Route::post('/add_comment', [UserController::class, 'add_comment']);
+	This takes post request or json object containing id, password, comments as parameter. This then is used to validate the user and if all is valid the comments us updated by api.
+
+Note:
+	The custom command created is "make:comment {user_id} {comment}"
+	example: php artisan make:comment 2 "This is a new comment"
+		This will search for the user with id 2 and if found will update the comments column to "This is a new comment".
+
+Screenshot are also included.
+
+
+
