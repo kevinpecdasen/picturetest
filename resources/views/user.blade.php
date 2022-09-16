@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
     <noscript><link rel="stylesheet" href="{{ asset('assets/css/noscript.css') }}" /></noscript>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="is-preload">
 <div id="wrapper">
@@ -15,6 +16,11 @@
             <h1>{{ $user->name }}</h1>
             <p> {{ nl2br($user->comments) }}</p>
         </header>
+
+        <form action="add_comment">
+
+            <input type="submit"/>
+        </form>
     </section>
     <footer id="footer">
         <ul class="copyright">
