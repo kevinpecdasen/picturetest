@@ -32,7 +32,8 @@ class AddComment extends Command
         $request = new Request();
         $values = [
             'id' => $this->argument('id'), 
-            'comments' => $this->argument('comment');
+            'comments' => $this->argument('comment')
+        ];
         $request->merge($values);
         app(UserController::class)->add_comment($request);
     }
