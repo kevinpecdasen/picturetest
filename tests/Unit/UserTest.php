@@ -3,13 +3,14 @@
 namespace Tests\Unit;
 
 // use PHPUnit\Framework\TestCase;
-// use PHPUnit\Framework\TestCase;
 use Tests\TestCase;
 
 class UserTest extends TestCase
 {
     /**
-     * A basic unit test example.
+     * Checks if the user exists, 
+     * this will also show if the "Functionality to be ported" 
+     * at number 1 will be working
      *
      * @return void
      */

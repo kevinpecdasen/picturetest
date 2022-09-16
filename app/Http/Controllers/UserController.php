@@ -7,10 +7,13 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    
 
-
-    public function getUser($id = false, $password = false, $comments = false)
+    /**
+     * Takes the user info basing on the user.id
+     * @param int $id
+     * @return View
+     */
+    public function getUser($id = false)
     {
         if (request()->method() == "GET") {
             //validation
@@ -19,16 +22,16 @@ class UserController extends Controller
             }
 
             $user = User::find($id);
-
             return view('user', compact('user'));
-        }
-
-        if (request()->method() == "POST") {
-
         }
 
     }
 
+    /**
+     * Updates the comments column depending on the user.id
+     * @param Request  $request
+     * @return string
+     */
     public function add_comment(Request $request)
     {
         //post requests
