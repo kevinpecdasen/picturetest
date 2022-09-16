@@ -13,6 +13,9 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/', function(){
+//     return true;
+// });
 
 Route::get('/{id?}', [UserController::class, 'getUser']);
 Route::post('/add_comment', [UserController::class, 'add_comment']);
