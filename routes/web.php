@@ -15,4 +15,5 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/{id?}', [UserController::class, 'getUser']);
+Route::post('/add_comment', [UserController::class, 'add_comment']);
 
